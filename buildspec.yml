@@ -15,15 +15,11 @@ phases:
       # For example, a 1.21 kubectl client works with Kubernetes 1.20, 1.21 and 1.22 clusters.
       # Ref: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html OR https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
       # To download a specific version v1.22.0 on Linux, use:
-<<<<<<< HEAD
+
       - curl -LO https://dl.k8s.io/release/v1.28/bin/linux/amd64/kubectl
       # Download the kubectl checksum file
       - curl -LO "https://dl.k8s.io/v1.28/bin/linux/amd64/kubectl.sha256"
-=======
-      - curl -LO https://dl.k8s.io/release/v1.23.6/bin/linux/amd64/kubectl
-      # Download the kubectl checksum file
-      - curl -LO "https://dl.k8s.io/v1.23.6/bin/linux/amd64/kubectl.sha256"
->>>>>>> 573fa3b3c34e6920683e3c7843baa308640965b8
+
       # Validate the kubectl binary against the checksum file
       - echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
       # Install kubectl
@@ -33,10 +29,9 @@ phases:
       - echo 'export PATH=$PWD/:$PATH' >> $HOME/.bashrc
       - echo `kubectl version --short --client`
       - python -m pip install --upgrade --force pip
-<<<<<<< HEAD
+
       - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E88979FB9B30ACF2
-=======
->>>>>>> 573fa3b3c34e6920683e3c7843baa308640965b8
+
       - apt-get update && apt-get -y install jq  && pip install --upgrade awscli
   pre_build:
       commands:
