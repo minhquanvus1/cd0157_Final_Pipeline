@@ -133,6 +133,7 @@ Resources:
             }
 
             cfnresponse.send(event, context, cfnresponse.SUCCESS, response, context.log_stream_name)
+
             client = boto3.client('iam')
             try:
               if event['RequestType'] == 'Create':
