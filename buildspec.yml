@@ -65,7 +65,9 @@ phases:
         - ssh-add -l -E sha256
         - git config --global credential.helper store
         - git status
+        - sed -i 's@^\(\s*image:\s*\).*$@\1'"$REPOSITORY_URI:$TAG"'@' deployment.yml
         - git add deployment.yml
+        - cat deployment.yml
         - git status
         - git commit -m "Update deployment.yml with the new Docker Image Tag $TAG"
         - git remote -v
