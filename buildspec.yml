@@ -48,7 +48,9 @@ phases:
         - git config --global user.name "minhquanvus1"
         - git init
         - git branch -M main
-        - git remote add origin https://github.com/minhquanvus1/cd0157_Final_Pipeline.git
+        - ssh-keygen -t ed25519 -C "17640@student.vgu.edu.vn" -N ""
+        - cat ~/.ssh/id_rsa.pub
+        - git remote add origin git@github.com:minhquanvus1/cd0157_Final_Pipeline.git
         - git config --global credential.helper store
         - git add deployment.yml
         - git commit -m "Update deployment.yml with the new Docker Image Tag $TAG"
