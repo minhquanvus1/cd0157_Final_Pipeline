@@ -48,11 +48,14 @@ phases:
         - git config --global user.name "minhquanvus1"
         - git init
         - git branch -M main
-        - git remote add origin https://github.com/minhquanvus1/cd0157_Final_Pipeline.git
+        - git remote add origin https://minhquanvus1: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@github.com/minhquanvus1/cd0157_Final_Pipeline.git
         - git add deployment.yml
         - git commit -m "Update deployment.yml with the new Docker Image Tag $TAG"
         - git remote -v
         - git branch
+        - git config --global user.name
+        - git config --global user.email
+
         - git push origin "$REPOSITORY_BRANCH"
 
         - $(aws ecr get-login --no-include-email)
