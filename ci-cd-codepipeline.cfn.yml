@@ -271,7 +271,6 @@ Resources:
               - Effect: Allow
                 Action: ssm:GetParameter
                 Resource: "arn:aws:ssm:us-east-2:387546835452:parameter/myapp/private-key"
-              
               - Effect: Allow
                 Action:
                   - kms:Decrypt
