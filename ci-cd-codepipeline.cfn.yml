@@ -266,6 +266,7 @@ Resources:
               - Resource: '*'
                 Effect: Allow
                 Action:
+                  - ssm:GetParameter
                   - ssm:GetParameters
               - Resource: '*'
                 Effect: Allow
