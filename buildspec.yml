@@ -50,6 +50,8 @@ phases:
         - git remote add origin https://github.com/minhquanvus1/cd0157_Final_Pipeline.git
         - git add deployment.yml
         - git commit -m "Update deployment.yml with the new Docker Image Tag $TAG"
+        - git remote -v
+        - git branch
         - git push origin "$REPOSITORY_BRANCH"
 
         - $(aws ecr get-login --no-include-email)
