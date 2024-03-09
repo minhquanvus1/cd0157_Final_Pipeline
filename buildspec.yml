@@ -43,7 +43,8 @@ phases:
         - TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
         # - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' deployment.yml
         - sed -i 's@\('"$REPOSITORY_NAME"'\):.*@\1:'"$TAG"'@' deployment.yml
-
+        - echo $TAG
+        - cat deployment.yml
         - git config --global user.email "17640@student.vgu.edu.vn"
         - git config --global user.name "minhquanvus1"
         # - git init
@@ -62,7 +63,9 @@ phases:
         # - ssh -T git@github.com
         - ssh-add -l -E sha256
         - git config --global credential.helper store
+        - git status
         - git add deployment.yml
+        - git status
         - git commit -m "Update deployment.yml with the new Docker Image Tag $TAG"
         - git remote -v
         - git branch
