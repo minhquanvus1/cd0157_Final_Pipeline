@@ -51,6 +51,7 @@ phases:
         # - ssh-keygen -t ed25519 -C "17640@student.vgu.edu.vn" -f ~/.ssh/id_ed25519 -N ""
         # - cat ~/.ssh/id_ed25519.pub
         - aws ssm get-parameter --name "/myapp/private-key" --with-decryption --query "Parameter.Value" --output text > ~/.ssh/id_ed25519
+        - chmod 600 ~/.ssh/id_ed25519
         - git remote add origin git@github.com:minhquanvus1/cd0157_Final_Pipeline.git
         - git config --global credential.helper store
         - git add deployment.yml
