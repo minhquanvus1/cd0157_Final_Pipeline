@@ -41,7 +41,15 @@ phases:
   pre_build:
       commands:
         - TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
-        - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' deployment.yml
+        # - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' deployment.yml
+        - sed -i 's@\('"$REPOSITORY_NAME"'\):.*@\1:'"$TAG"'@' deployment.yml
+
+        - git config --global user.email "17640@student.vgu.edu.vn"
+        - git config --global user.name "minhquanvus1"
+        - git add deployment.yml
+        - git commit -m "Update deployment.yml with the new Docker Image Tag $TAG"
+        - git push origin main
+
         - $(aws ecr get-login --no-include-email)
         - export KUBECONFIG=$HOME/.kube/config
         - echo `ls -l`
