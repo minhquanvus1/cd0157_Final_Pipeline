@@ -22,7 +22,7 @@ spec:
       containers:
       - name: simple-flask
         # image: IMAGE_TAG
-        image: 387546835452.dkr.ecr.us-east-2.amazonaws.com/myeksstack-ecrdockerrepository-lqmy0yx7fajj:cd0157_Final_Pipeline.main..2024-03-10.01.54.36.76ac09d6
+        image: 387546835452.dkr.ecr.us-east-2.amazonaws.com/myeksstack-ecrdockerrepository-lqmy0yx7fajj:cd0157_Final_Pipeline.main..2024-03-10.01.58.51.03437c79
         securityContext:
           privileged: false
           readOnlyRootFilesystem: false
